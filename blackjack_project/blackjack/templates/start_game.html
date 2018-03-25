@@ -1,0 +1,25 @@
+<html>
+   <head> 
+      <title>Blackjack</title> 
+      
+      <style type = "text/css"> 
+         .button {
+		    background-color: #4CAF50; /* Green */
+		    border: none;
+		    color: white;
+		    padding: 15px 32px;
+		    text-align: center;
+		    text-decoration: none;
+		    display: inline-block;
+		    font-size: 16px;
+		}
+      </style> 
+   </head>
+<body>
+<h1 align="center"> <font color="grey"> START BlackJack </font></h1>
+<div class="row">
+	<button class="button"><a href={% url 'views_play_game' %}>Start Game &raquo;</a></button>
+	<button class="button"><a href={% url 'views_games' %}>Statistics &raquo;</a></button>
+</div>
+</body>
+</html>

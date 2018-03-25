@@ -1,0 +1,6 @@
+URLs
+Start Game
+http://127.0.0.1:8000/games/start_game/
+
+Report
+http://127.0.0.1:8000/games/all/

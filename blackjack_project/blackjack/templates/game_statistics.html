@@ -1,0 +1,40 @@
+<html>
+<body>
+<h1 align="center"> <font color="grey"> STATISTICS </font></h1>
+<div class="row">
+	{% if games.count > 0 %} 
+		<table style="width:100%">
+			<tr>
+			{% for game in games %}
+    			<th><h3><font color="orange"> GAME {{ game.id }}  </font></h3></th>
+  			{% endfor %} 
+  			</tr>
+  			<tr>
+  				<td><h2><font color="blue"> DEALER </font></h2></td>
+	  			{% for game in games %}
+	  				{% if game.dealer_winning_status == True %} 
+	  					<td><font color="green">{{ game.dealer_total_points }}</font></td> 
+	  				{% else %}
+	  					<td><font color="grey">{{ game.dealer_total_points }}</font></td> 
+	  				{% endif %}
+				{% endfor %} 
+			</tr>
+			<tr>
+  				<td><h2><font color="violet"> PLAYER </font></h2></td>
+	  			{% for game in games %}
+	  				{% if game.player_winning_status == True %} 
+	  					<td><font color="green">{{ game.player_total_points }}</font></td> 
+	  				{% else %}
+	  					<td><font color="grey">{{ game.player_total_points }}</font></td> 
+	  				{% endif %}
+				{% endfor %} 
+			</tr>
+		</table>
+	{% else %}
+		<div>
+		    <p>Nothing to show</p>
+		</div>
+	{% endif %}
+</div>
+</body>
+</html>

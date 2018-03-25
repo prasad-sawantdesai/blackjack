@@ -1,0 +1,50 @@
+<html>
+<body>
+<h1 align="center"> <font color="grey"> BLACKJACK </font></h1>
+<div class="row">
+	<table style="width:100%" border="1">
+		<tr>
+			<th></th>
+			<th><h3><font color="blue"> DEALER </font></h3></th>
+			<th><h3><font color="violet"> PLAYER  </font></h3></th>
+		</tr>
+		<tr>
+  			<td><h2><font color="blue"> POINTS </font></h2></td>
+  			<td>
+		  		<table style="width:100%" border="1">
+		  			{% for point in dealer.points %}
+		  				<td><font color="grey">{{ point }}</font></td> 
+					{% endfor %} 
+				</table>
+			</td>
+			<td>
+		  		<table style="width:100%" border="1">
+					{% for point in player.points %}
+						<td><font color="red">{{ point }}</font></td> 
+					{% endfor %} 
+				</table>
+			</td>
+		</tr>
+		<tr>
+			{% if player.player_status != "blackjack" %} 
+	  			<td><h2><font color="blue"> ACTIONS </font></h2></td>
+	  			<td></td>
+				<td>
+			  		<table style="width:100%" border="1">
+			  			<td><button type="button"><a href={% url 'views_pick_card' %}>Pick a Card &raquo;</a></button></td> 
+			  			<td><button type="button"><a href={% url 'views_skip' %}>Skip &raquo;</a></button></td> 
+					</table>
+				</td>
+			{% endif %}
+		</tr>
+		<tr>
+			{% if player.player_status == "blackjack" or dealer.player_status == "bust" or player.player_status == "won"  %} 
+  				<td><h1><font color="green"> Player won!! </font></h1></td>
+  			{% elif player.player_status == "bust" or dealer.player_status == "blackjack" or dealer.player_status == "won" %}
+  				<td><h1><font color="red"> Player loose!! </font></h1></td>
+  			{% endif %}
+		</tr>
+	</table>
+</div>
+</body>
+</html>
